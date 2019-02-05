@@ -7,34 +7,30 @@
 //
 //
 // Author: Steffen Meschkat <mesch@google.com>
-import {
-    xmlParse
-} from "../src/dom"
-import {
-    xsltProcess
-} from "../src/xslt"
+import { xmlParse } from "../src/dom";
+import { xsltProcess } from "../src/xslt";
 
 window.logging = true;
 window.xsltdebug = true;
 
 window.el = function(id) {
-    return document.getElementById(id);
-}
+  return document.getElementById(id);
+};
 
 window.test_xslt = function() {
-    const xml = xmlParse(el('xml').value);
-    const xslt = xmlParse(el('xslt').value);
-    const html = xsltProcess(xml, xslt);
-    el('html').value = html;
-    el('htmldisplay').innerHTML = html;
-}
+  const xml = xmlParse(el("xml").value);
+  const xslt = xmlParse(el("xslt").value);
+  const html = xsltProcess(xml, xslt);
+  el("html").value = html;
+  el("htmldisplay").innerHTML = html;
+};
 
 window.cleanxml = function() {
-    cleanvalue('xml');
-    cleanvalue('xslt');
-}
+  cleanvalue("xml");
+  cleanvalue("xslt");
+};
 
 window.cleanvalue = function(id) {
-    const x = el(id);
-    x.value = x.value.replace(/^\s*/, '').replace(/\n\s*/g, '\n');
-}
+  const x = el(id);
+  x.value = x.value.replace(/^\s*/, "").replace(/\n\s*/g, "\n");
+};

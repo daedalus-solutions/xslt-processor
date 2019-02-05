@@ -1,5 +1,5 @@
 {
-  "name": "xslt-processor",
+  "name": "@daedalus/xslt-processor",
   "version": "0.11.5",
   "description": "a JavaScript XSLT Processor",
   "main": "dist/xslt-processor.js",

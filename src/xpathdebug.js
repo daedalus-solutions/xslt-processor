@@ -3,7 +3,7 @@
 // All Rights Reserved
 //
 // Debug stuff for the XPath parser. Also used by XSLT.
-import { XNode } from "../src/dom.js";
+import {XNode} from "../src/dom.js";
 import {
   ExprContext,
   StringValue,

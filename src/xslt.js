@@ -593,9 +593,9 @@ function xsltMatch(match, context) {
     let node = context.node;
 
     while (!ret && node) {
-      const result = expr
-        .evaluate(context.clone(node, 0, [node]))
-        .nodeSetValue();
+      const result = expr.
+        evaluate(context.clone(node, 0, [node])).
+        nodeSetValue();
       for (let i = 0; i < result.length; ++i) {
         if (result[i] == context.node) {
           ret = true;

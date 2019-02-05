@@ -49,7 +49,7 @@ import {
   regExpEscape,
   predicateExprHasPositionalSelector
 } from "./util.js";
-import { XML_NC_NAME } from "./xmltoken.js";
+import {XML_NC_NAME} from "./xmltoken.js";
 import {
   XNode,
   DOM_DOCUMENT_NODE,
@@ -59,7 +59,7 @@ import {
   DOM_COMMENT_NODE,
   DOM_PROCESSING_INSTRUCTION_NODE
 } from "./dom.js";
-import { toString } from "./xpathdebug.js";
+import {toString} from "./xpathdebug.js";
 
 export function xpathParse(expr, xpathLog = () => {}) {
   xpathLog(`parse ${expr}`);
@@ -355,6 +355,7 @@ function xpathGrammarPrecedence(frame) {
   let ret = 0;
 
   if (frame.rule) {
+
     /* normal reduce */
     if (frame.rule.length >= 3 && frame.rule[2] >= 0) {
       ret = frame.rule[2];
@@ -365,9 +366,11 @@ function xpathGrammarPrecedence(frame) {
       }
     }
   } else if (frame.tag) {
+
     /* TOKEN match */
     ret = xpathTokenPrecedence(frame.tag);
   } else if (frame.length) {
+
     /* Q_ match */
     for (let j = 0; j < frame.length; ++j) {
       let p = xpathGrammarPrecedence(frame[j]);
@@ -984,9 +987,9 @@ export class StepExpr {
         for (let ii = 0; ii < nodelist0.length; ++ii) {
           let n = nodelist0[ii];
           if (
-            this.predicate[i]
-              .evaluate(ctx.clone(n, ii, nodelist0))
-              .booleanValue()
+            this.predicate[i].
+              evaluate(ctx.clone(n, ii, nodelist0)).
+              booleanValue()
           ) {
             nodelist.push(n);
           }
@@ -1277,10 +1280,10 @@ let xpathfunctions = {
     } else {
       s = new NodeSetValue([ctx.node]).stringValue();
     }
-    s = s
-      .replace(/^\s*/, "")
-      .replace(/\s*$/, "")
-      .replace(/\s+/g, " ");
+    s = s.
+      replace(/^\s*/, "").
+      replace(/\s*$/, "").
+      replace(/\s+/g, " ");
     return new StringValue(s);
   },
 
@@ -1503,9 +1506,9 @@ export class PathExpr {
     let nodes1 = [];
     if (ctx.returnOnFirstMatch) {
       for (let i = 0; i < nodes.length; ++i) {
-        nodes1 = this.rel
-          .evaluate(ctx.clone(nodes[i], i, nodes))
-          .nodeSetValue();
+        nodes1 = this.rel.
+          evaluate(ctx.clone(nodes[i], i, nodes)).
+          nodeSetValue();
         if (nodes1.length > 0) {
           break;
         }
@@ -1513,9 +1516,9 @@ export class PathExpr {
       return new NodeSetValue(nodes1);
     } else {
       for (let i = 0; i < nodes.length; ++i) {
-        const nodes0 = this.rel
-          .evaluate(ctx.clone(nodes[i], i, nodes))
-          .nodeSetValue();
+        const nodes0 = this.rel.
+          evaluate(ctx.clone(nodes[i], i, nodes)).
+          nodeSetValue();
         for (let ii = 0; ii < nodes0.length; ++ii) {
           nodes1.push(nodes0[ii]);
         }

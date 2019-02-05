@@ -184,11 +184,11 @@ function xmlFullNodeName(n) {
 // reference start delimiter &. The escaped string can be used in XML
 // text portions (i.e. between tags).
 export function xmlEscapeText(s) {
-  return `${s}`
-    .replace(/&/g, "&amp;")
-    .replace(/&amp;amp;/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+  return `${s}`.
+    replace(/&/g, "&amp;").
+    replace(/&amp;amp;/g, "&amp;").
+    replace(/</g, "&lt;").
+    replace(/>/g, "&gt;");
 }
 
 // Escape XML special markup characters: tag delimiter < > entity

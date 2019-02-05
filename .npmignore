@@ -1,3 +1,13 @@
 localtests/
 node_modules/
+src/
+test/
+test_src/
+tests/
 .git/
+.babelrc
+.gitignore
+.npmignore
+ChangeLog
+rollup.config.js
+TODO.md

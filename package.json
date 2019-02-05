@@ -1,6 +1,6 @@
 {
   "name": "@daedalus/xslt-processor",
-  "version": "0.11.5",
+  "version": "0.12.0",
   "description": "a JavaScript XSLT Processor",
   "main": "dist/xslt-processor.js",
   "module": "src/index.js",
@@ -16,7 +16,7 @@
     "build_xslt_script": "rollup test_src/xslt_script.js -c -f iife -o test_dist/xslt_script.js",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
-    "lint": "eslint src/"
+    "lint": "eslint --fix src/"
   },
   "repository": {
     "type": "git",
